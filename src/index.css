@@ -1,0 +1,30 @@
+:root {
+  --main-accent-color: #5964e0;
+  --sec-accent-color: #939bf4;
+
+  --light-main-bg-color: #f4f6f8;
+  --light-sec-bg-color: #ffffff;
+
+  --dark-main-bg-color: #121721;
+  --dark-sec-bg-color: #19202d;
+
+  --light-main-text-color: #19202d;
+  --light-sec-text-color: #6e8098;
+
+  --dark-main-text-color: #ffffff;
+  --dark-sec-text-color: #9daec2;
+  --dark-third-text-color: #6e8098;
+
+  --border-color: #6e8098;
+
+  --main-border-radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  line-height: 1.25;
+}
