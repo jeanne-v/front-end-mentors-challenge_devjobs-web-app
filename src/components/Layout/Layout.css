@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+.container--light {
+  background-color: var(--light-main-bg-color);
+}
+
+.container--dark {
+  background-color: var(--dark-main-bg-color);
+}

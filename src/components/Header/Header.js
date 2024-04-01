@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../App";
+import { ThemeContext } from "../Layout/Layout";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import sunIcon from "../../assets/icon-sun.svg";
 import moonIcon from "../../assets/icon-moon.svg";
@@ -11,9 +12,9 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__content">
-        <a href="#">
+        <Link to="/">
           <img src={logo} className="header__logo" />
-        </a>
+        </Link>
 
         <div className="header__mode-toggle">
           <button
