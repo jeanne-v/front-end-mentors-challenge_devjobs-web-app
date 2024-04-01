@@ -13,7 +13,7 @@ main {
   row-gap: 49px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 700px) and (max-width: 1099px) {
   main {
     margin: 0 40px;
   }
