@@ -18,6 +18,8 @@
   --border-color: #6e8098;
 
   --main-border-radius: 6px;
+
+  --main-font: "Kumbh Sans", sans-serif;
 }
 
 * {
@@ -25,6 +27,6 @@
 }
 
 body {
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: var(--main-font);
   line-height: 1.25;
 }
