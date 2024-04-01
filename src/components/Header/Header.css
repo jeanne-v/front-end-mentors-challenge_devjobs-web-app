@@ -1,0 +1,64 @@
+.header {
+  background-image: url(../../assets/bg-pattern-header_mobile.svg);
+  padding: 32px 24px 72px;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__mode-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.header__mode-btn {
+  cursor: pointer;
+  border: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: transparent;
+}
+
+.header__mode-btn img {
+  display: block;
+}
+
+.header__mode-btn:last-child {
+  padding-right: 0;
+}
+
+.header__toggle {
+  background-color: var(--light-sec-bg-color);
+  height: 24px;
+  width: 48px;
+  border-radius: 12px;
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  border: none;
+  transition: justify-content 10s;
+}
+
+.header__toggle--light {
+  justify-content: flex-start;
+}
+
+.header__toggle--dark {
+  justify-content: flex-end;
+}
+
+.header__toggle-circle {
+  background-color: var(--main-accent-color);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.header__toggle-circle:hover {
+  background-color: var(--sec-accent-color);
+}
