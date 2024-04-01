@@ -13,15 +13,17 @@ export default function App() {
   const [theme, setTheme] = useState("light");
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Header />
-      <main>
-        <div className="jobs-container">
-          {jobs.map((job) => {
-            return <Job key={job.id} data={job} />;
-          })}
-        </div>
-      </main>
-    </ThemeContext.Provider>
+    <div className={`container container--${theme}`}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <Header />
+        <main>
+          <div className="jobs-container">
+            {jobs.map((job) => {
+              return <Job key={job.id} data={job} />;
+            })}
+          </div>
+        </main>
+      </ThemeContext.Provider>
+    </div>
   );
 }

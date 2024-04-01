@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../App";
 import "./Job.css";
 
 export default function Job({ data }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <a href="#" className="job">
+    <a href="#" className={`job job--${theme}`}>
       <div
         className="job__company-logo-container"
         style={{ backgroundColor: data.logoBackground }}
