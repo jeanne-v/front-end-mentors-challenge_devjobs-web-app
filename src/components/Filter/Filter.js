@@ -35,7 +35,10 @@ export default function Filter({ handleSubmit }) {
   return (
     <form
       className={`filter-bar filter-bar--${theme}`}
-      onSubmit={(e) => handleSubmit(e, filterData)}
+      onSubmit={(e) => {
+        handleSubmit(e, filterData);
+        setIsModalOpen(false);
+      }}
       id="filter-form"
     >
       <input
