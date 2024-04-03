@@ -1,5 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { createPortal } from "react-dom";
 import { ThemeContext } from "../Layout/Layout";
+import Modal from "./Modal";
 import filterIconLight from "../../assets/icon-filter-light.svg";
 import filterIconDark from "../../assets/icon-filter-dark.svg";
 import searchIconWhite from "../../assets/icon-search-white.svg";
@@ -7,21 +9,50 @@ import "./Filter.css";
 
 export default function Filter({ handleSubmit }) {
   const { theme } = useContext(ThemeContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [filterData, setFilterData] = useState({
+    position: "",
+    location: "",
+    fullTimeOnly: false,
+  });
+
+  if (isModalOpen) {
+    document.body.style.position = "fixed";
+  } else {
+    document.body.style.position = "static";
+  }
+
+  function handleChange(e) {
+    setFilterData((prevData) => {
+      return {
+        ...prevData,
+        [e.target.name]:
+          e.target.type === "checkbox" ? e.target.checked : e.target.value,
+      };
+    });
+  }
 
   return (
     <form
       className={`filter-bar filter-bar--${theme}`}
-      onSubmit={(e) => handleSubmit(e)}
+      onSubmit={(e) => handleSubmit(e, filterData)}
+      id="filter-form"
     >
       <input
         className="filter-bar__search-input filter-bar__search-input--title"
         type="search"
         placeholder="Filter by title..."
-        name="title"
+        name="position"
+        value={filterData.position}
+        onChange={handleChange}
       />
 
-      <div className="filter-bar__mobile-btn">
-        <button type="button" className="filter-bar__modal-open-btn">
+      <div className="filter-bar__mobile-btns">
+        <button
+          type="button"
+          className="filter-bar__modal-open-btn"
+          onClick={() => setIsModalOpen(true)}
+        >
           <img src={theme === "light" ? filterIconLight : filterIconDark} />
         </button>
 
@@ -32,6 +63,49 @@ export default function Filter({ handleSubmit }) {
           <img src={searchIconWhite} />
         </button>
       </div>
+
+      {isModalOpen &&
+        createPortal(
+          <Modal closeModal={() => setIsModalOpen(false)}>
+            <input
+              className="filter-bar__search-input filter-bar__search-input--location"
+              type="search"
+              name="location"
+              placeholder="Filter by location"
+              form="filter-form"
+              value={filterData.location}
+              onChange={handleChange}
+            />
+
+            <div className="modal__bottom">
+              <div className="filter-bar__checkbox-container">
+                <input
+                  id="full-time"
+                  type="checkbox"
+                  className="filter-bar__checkbox"
+                  checked={filterData.fullTimeOnly}
+                  onChange={handleChange}
+                  name="fullTimeOnly"
+                />
+                <label
+                  htmlFor="full-time"
+                  className="filter-bar__checkbox-label"
+                >
+                  Full Time Only
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                form="filter-form"
+                className="filter-bar__search-btn"
+              >
+                Search
+              </button>
+            </div>
+          </Modal>,
+          document.body
+        )}
     </form>
   );
 }

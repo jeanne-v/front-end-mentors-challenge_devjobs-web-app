@@ -11,15 +11,18 @@ export default function HomePage() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function handleFilterSubmit(e) {
+  function handleFilterSubmit(e, filterFormData) {
     e.preventDefault();
-    const filterData = new FormData(e.target);
-    const titleFilter = filterData.get("title");
-
-    if (titleFilter) {
-      setSearchParams({ title: titleFilter });
-    } else {
-      setSearchParams({});
+    // set the search params to match the values of the filter form
+    for (let [key, value] of Object.entries(filterFormData)) {
+      setSearchParams((prevParams) => {
+        if (value) {
+          prevParams.set(key, value);
+        } else {
+          prevParams.delete(key);
+        }
+        return prevParams;
+      });
     }
 
     setMaxNumberOfDisplayedJobs(12);
@@ -29,16 +32,28 @@ export default function HomePage() {
     setMaxNumberOfDisplayedJobs((prevValue) => prevValue + 12);
   }
 
-  const titleFilter = searchParams.get("title");
-
   let relevantJobs;
 
-  if (titleFilter) {
-    relevantJobs = allJobs.filter((job) => {
-      return job.position.toLowerCase().includes(titleFilter.toLowerCase());
-    });
-  } else {
+  if (searchParams.size === 0) {
     relevantJobs = allJobs;
+  } else {
+    relevantJobs = allJobs.filter((job) => {
+      let doesJobMatch = true;
+
+      // compare job details with search params
+      for (let [key, value] of searchParams.entries()) {
+        if (key === "fullTimeOnly") {
+          if (job.contract !== "Full Time") {
+            doesJobMatch = false;
+          }
+        } else {
+          if (!job[key].toLowerCase().includes(value.toLowerCase())) {
+            doesJobMatch = false;
+          }
+        }
+      }
+      return doesJobMatch;
+    });
   }
 
   return (
