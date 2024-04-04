@@ -15,6 +15,7 @@ export default function Job({ data }) {
         <img
           className="job__company-logo"
           src={require(`../../assets/logos/${data.logo}`)}
+          alt={`${data.company} logo`}
         />
       </div>
 

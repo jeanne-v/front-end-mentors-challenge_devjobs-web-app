@@ -13,7 +13,7 @@ export default function Header() {
     <header className="header">
       <div className="header__content">
         <Link to="/">
-          <img src={logo} className="header__logo" />
+          <img src={logo} className="header__logo" alt="devjobs home" />
         </Link>
 
         <div className="header__mode-toggle">
@@ -25,10 +25,11 @@ export default function Header() {
               }
             }}
           >
-            <img src={sunIcon} />
+            <img src={sunIcon} alt="switch to light theme" />
           </button>
 
           <button
+            aria-label="switch to opposite color theme"
             className={`header__toggle header__toggle--${theme}`}
             onClick={() => {
               if (theme === "dark") {
@@ -49,7 +50,7 @@ export default function Header() {
               }
             }}
           >
-            <img src={moonIcon} />
+            <img src={moonIcon} alt="switch to dark theme" />
           </button>
         </div>
       </div>

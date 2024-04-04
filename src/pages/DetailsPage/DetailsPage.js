@@ -22,6 +22,7 @@ export default function DetailsPage() {
             <img
               className="details-page__company-logo"
               src={require(`../../assets/logos/${jobData.logo}`)}
+              alt={`${jobData.company} logo`}
             />
           </div>
 

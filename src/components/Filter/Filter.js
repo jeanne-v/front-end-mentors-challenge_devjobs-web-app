@@ -78,14 +78,17 @@ export default function Filter({ handleSubmit }) {
             className="filter-bar__modal-open-btn"
             onClick={() => setIsModalOpen(true)}
           >
-            <img src={theme === "light" ? filterIconLight : filterIconDark} />
+            <img
+              alt="filter results"
+              src={theme === "light" ? filterIconLight : filterIconDark}
+            />
           </button>
 
           <button
             className="filter-bar__search-btn filter-bar__search-btn--icon"
             type="submit"
           >
-            <img src={searchIconWhite} />
+            <img alt="search" src={searchIconWhite} />
           </button>
         </div>
       ) : (
