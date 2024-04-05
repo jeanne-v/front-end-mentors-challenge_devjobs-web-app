@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Filter from "../../components/Filter/Filter";
 import Job from "../../components/Job/Job";
@@ -9,24 +9,11 @@ export default function HomePage() {
   const allJobs = data;
   const [maxNumberOfDisplayedJobs, setMaxNumberOfDisplayedJobs] = useState(12);
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-  function handleFilterSubmit(e, filterFormData) {
-    e.preventDefault();
-    // set the search params to match the values of the filter form
-    for (let [key, value] of Object.entries(filterFormData)) {
-      setSearchParams((prevParams) => {
-        if (value) {
-          prevParams.set(key, value);
-        } else {
-          prevParams.delete(key);
-        }
-        return prevParams;
-      });
-    }
-
+  useEffect(() => {
     setMaxNumberOfDisplayedJobs(12);
-  }
+  }, [searchParams]);
 
   function loadMoreJobs() {
     setMaxNumberOfDisplayedJobs((prevValue) => prevValue + 12);
@@ -58,7 +45,7 @@ export default function HomePage() {
 
   return (
     <main className="jobs-page__main">
-      <Filter handleSubmit={handleFilterSubmit} />
+      <Filter />
 
       <div className="jobs-container">
         {relevantJobs.slice(0, maxNumberOfDisplayedJobs).map((job) => {
