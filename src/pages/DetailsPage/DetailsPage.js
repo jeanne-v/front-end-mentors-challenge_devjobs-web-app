@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../components/Layout/Layout";
 import data from "../../data.json";
@@ -33,9 +33,9 @@ export default function DetailsPage() {
               <p className="details-page__company-website">{jobData.website}</p>
             </div>
 
-            <a href="#" className="details-page__company-link">
+            <Link to="." className="details-page__company-link">
               Company Site
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -51,9 +51,9 @@ export default function DetailsPage() {
               <p className="details-page__job-location">{jobData.location}</p>
             </div>
 
-            <a className="apply-btn" href="#">
+            <Link to="." className="apply-btn">
               Apply Now
-            </a>
+            </Link>
           </div>
 
           <div className="details-page__job-desc">
@@ -147,9 +147,9 @@ export default function DetailsPage() {
             <p className="job-recap__company">{jobData.company}</p>
           </div>
 
-          <a className="apply-btn" href="#">
+          <Link to="." className="apply-btn">
             Apply Now
-          </a>
+          </Link>
         </div>
       </div>
     </div>
