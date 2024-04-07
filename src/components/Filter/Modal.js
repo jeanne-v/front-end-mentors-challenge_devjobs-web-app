@@ -8,7 +8,7 @@ export default function Modal({ children, closeModal }) {
     <div className="modal-container" onClick={closeModal}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`modal modal--${theme}`}
+        className={`modal ${theme}-theme`}
       >
         {children}
       </div>

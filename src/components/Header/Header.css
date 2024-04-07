@@ -16,7 +16,7 @@
   .header {
     background-image: url(../../assets/bg-pattern-header_desktop.svg);
     padding: 45px 40px 85px;
-    border-radius: 0 0 0 80px;
+    border-radius: 0 0 0 82px;
   }
 
   .header__content {
@@ -25,33 +25,33 @@
   }
 }
 
-.header__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header__logo {
-  display: block;
-}
-
+.header__content,
 .header__mode-toggle {
   display: flex;
   align-items: center;
 }
 
-.header__mode-btn {
+.header__content {
+  justify-content: space-between;
+}
+
+.header__logo,
+.header__mode-btn img {
+  display: block;
+}
+
+.header__mode-btn,
+.header__toggle {
   cursor: pointer;
   border: none;
-  height: 32px;
   display: flex;
+}
+
+.header__mode-btn {
+  height: 32px;
   align-items: center;
   padding: 0 16px;
   background-color: transparent;
-}
-
-.header__mode-btn img {
-  display: block;
 }
 
 .header__mode-btn:last-child {
@@ -59,15 +59,11 @@
 }
 
 .header__toggle {
-  background-color: var(--light-sec-bg-color);
+  background-color: #ffffff;
   height: 24px;
   width: 48px;
   border-radius: 12px;
   padding: 5px;
-  display: flex;
-  cursor: pointer;
-  border: none;
-  transition: justify-content 10s;
 }
 
 .header__toggle--light {

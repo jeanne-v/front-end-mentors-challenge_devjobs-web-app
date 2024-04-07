@@ -1,18 +1,15 @@
 import { useParams, Link } from "react-router-dom";
-import { useContext } from "react";
-import { ThemeContext } from "../../components/Layout/Layout";
 import data from "../../data.json";
 import "./DetailsPage.css";
 
 export default function DetailsPage() {
-  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
 
   const jobData = data.filter((job) => {
     return job.id === +id;
   })[0];
   return (
-    <div className={`details-page--${theme}`}>
+    <div className="details-page">
       <main className="details-page__main">
         <div className="details-page__company-details">
           <div

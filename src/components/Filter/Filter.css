@@ -1,4 +1,22 @@
-/* filter bar styles */
+/* GEN STYLES */
+
+.filter-bar,
+.filter__search-input,
+.modal {
+  background-color: var(--sec-bg-color);
+}
+
+.filter-bar,
+.modal {
+  border-radius: var(--main-border-radius);
+}
+
+.filter__search-input,
+.filter__checkbox-label {
+  color: var(--main-text-color);
+}
+
+/* FILTER BAR STYLES  */
 
 .filter-bar {
   padding: 16px;
@@ -8,14 +26,6 @@
   column-gap: 20px;
   border-radius: var(--main-border-radius);
   margin-top: -40px;
-}
-
-.filter-bar--light {
-  background-color: var(--light-sec-bg-color);
-}
-
-.filter-bar--dark {
-  background-color: var(--dark-sec-bg-color);
 }
 
 @media (min-width: 700px) {
@@ -28,9 +38,9 @@
   }
 }
 
-/* filter bar search inputs */
+/* SEARCH INPUTS */
 
-.filter-bar__search-input {
+.filter__search-input {
   font-size: 16px;
   line-height: 1.25;
   font-family: var(--main-font);
@@ -38,70 +48,57 @@
   width: 100%;
 }
 
-.filter-bar--light .filter-bar__search-input,
-.modal--light .filter-bar__search-input {
-  background-color: var(--light-sec-bg-color);
-}
-
-.filter-bar--dark .filter-bar__search-input,
-.modal--dark .filter-bar__search-input {
-  background-color: var(--dark-sec-bg-color);
-}
-
-.filter-bar__search-input--title {
-  padding: 16px 0 16px 8px;
-}
-
-.filter-bar--light .filter-bar__search-input,
-.modal--light .filter-bar__search-input {
-  color: var(--light-main-text-color);
-}
-
-.filter-bar--dark .filter-bar__search-input,
-.modal--dark .filter-bar__search-input {
-  color: var(--dark-main-text-color);
-}
-
-.filter-bar--light .filter-bar__search-input::placeholder,
-.modal--light .filter-bar__search-input::placeholder {
+.light-theme .filter__search-input::placeholder {
   color: #19202d80;
 }
 
-.filter-bar--dark .filter-bar__search-input::placeholder,
-.modal--dark .filter-bar__search-input::placeholder {
+.dark-theme .filter__search-input::placeholder {
   color: #ffffff80;
 }
 
-.filter-bar__search-input--location {
-  background-image: url("../../assets/icon-location.svg");
+.dark-theme input {
+  color-scheme: dark;
+}
+
+input::-webkit-search-decoration {
+  display: none;
+}
+
+.filter__search-input--title {
+  padding: 16px 0 16px 8px;
+}
+
+.filter__search-input--title,
+.filter__search-input--location {
   background-repeat: no-repeat;
   background-position: left center;
 }
 
-.modal .filter-bar__search-input--location {
+.filter__search-input--location {
+  background-image: url("../../assets/icon-location.svg");
+}
+
+.modal .filter__search-input--location {
   padding: 16px 0 16px 40px;
   margin: 8px 24px;
   width: calc(100% - 48px);
 }
 
-.filter-bar__input-container {
+.filter__input-container {
   flex: 1 1 auto;
   min-width: 100px;
 }
 
 @media (min-width: 700px) {
-  .filter-bar__input-container {
+  .filter__input-container {
     padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    flex: 1 1 auto;
   }
 
-  .filter-bar__input-container:first-child {
+  .filter__input-container:first-child {
     padding-left: 32px;
   }
 
-  .filter-bar__search-input {
+  .filter__search-input {
     padding: 16px 0 16px 40px;
   }
 
@@ -110,10 +107,8 @@
     border-right: 1px solid var(--border-color);
   }
 
-  .filter-bar__search-input--title {
-    background-image: url("../../assets/icon-search-accent.svg");
-    background-repeat: no-repeat;
-    background-position: left center;
+  .filter__search-input--title {
+    background-image: url("../../assets/icon-search.svg");
   }
 
   .filter-bar > div:last-child {
@@ -125,14 +120,14 @@
   }
 }
 
-/* filter bar checkbox */
+/* CHECKBOX */
 
-.filter-bar__checkbox-container {
+.filter__checkbox-container {
   display: flex;
   align-items: center;
 }
 
-.filter-bar__checkbox {
+.filter__checkbox {
   margin: 0 16px 0 0;
   height: 24px;
   width: 24px;
@@ -141,21 +136,19 @@
   cursor: pointer;
 }
 
-.filter-bar--light .filter-bar__checkbox,
-.modal--light .filter-bar__checkbox {
+.light-theme .filter__checkbox {
   background-color: #19202d1a;
 }
 
-.filter-bar--dark .filter-bar__checkbox,
-.modal--dark .filter-bar__checkbox {
+.dark-theme .filter__checkbox {
   background-color: #ffffff1a;
 }
 
-.filter-bar__checkbox:hover {
+.filter__checkbox:hover {
   background-color: #5964e040;
 }
 
-.filter-bar__checkbox:checked {
+.filter__checkbox:checked {
   background-color: var(--main-accent-color);
   background-image: url("../../assets/checked-icon.svg");
   background-repeat: no-repeat;
@@ -163,62 +156,47 @@
   background-size: 13px auto;
 }
 
-.filter-bar__checkbox-label {
+.filter__checkbox-label {
   font-weight: 700;
   cursor: pointer;
   user-select: none;
 }
 
-.filter-bar--light .filter-bar__checkbox-label,
-.modal--light .filter-bar__checkbox-label {
-  color: var(--light-main-text-color);
-}
+/* BTNS */
 
-.filter-bar--dark .filter-bar__checkbox-label,
-.modal--dark .filter-bar__checkbox-label {
-  color: var(--dark-main-text-color);
-}
-
-/* filter bar buttons */
-
-.filter-bar__modal-open-btn {
-  cursor: pointer;
-  background-color: transparent;
+.filter__modal-open-btn,
+.filter__search-btn {
   border: none;
+  cursor: pointer;
+}
+
+.filter__modal-open-btn {
+  background-color: transparent;
   padding: 12px 8px;
 }
 
-.filter-bar__modal-open-btn img {
+.filter__modal-open-btn img {
   display: block;
 }
 
-.filter-bar__search-btn {
-  border: none;
+.filter__search-btn {
   background-color: var(--main-accent-color);
-  color: var(--dark-main-text-color);
+  color: var(--main-btn-text-color);
   font-family: var(--main-font);
   font-weight: 700;
   padding: 14px;
   border-radius: 5px;
   font-size: 16px;
   line-height: 20px;
-  cursor: pointer;
-}
-
-.filter-bar__search-btn:hover {
-  background-color: var(--sec-accent-color);
-}
-
-.filter-bar__search-btn--text {
-  padding: 16px;
-}
-
-.modal .filter-bar__search-btn {
   margin-top: 24px;
   width: 100%;
 }
 
-/* mobile modal */
+.filter__search-btn:hover {
+  background-color: var(--sec-accent-color);
+}
+
+/* MODAL */
 
 .modal-container {
   width: 100%;
@@ -234,19 +212,10 @@
 }
 
 .modal {
-  border-radius: var(--main-border-radius);
   width: 100%;
 }
 
 .modal__bottom {
   padding: 24px;
   border-top: var(--border-color) 1px solid;
-}
-
-.modal--light {
-  background-color: var(--light-sec-bg-color);
-}
-
-.modal--dark {
-  background-color: var(--dark-sec-bg-color);
 }

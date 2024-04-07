@@ -2,10 +2,7 @@ body {
   margin: 0;
 }
 
-.container--light {
-  background-color: var(--light-main-bg-color);
-}
-
-.container--dark {
-  background-color: var(--dark-main-bg-color);
+.container {
+  background-color: var(--main-bg-color);
+  min-height: 100dvh;
 }

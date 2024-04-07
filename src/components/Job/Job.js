@@ -1,13 +1,9 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../Layout/Layout";
 import "./Job.css";
 
 export default function Job({ data }) {
-  const { theme } = useContext(ThemeContext);
-
   return (
-    <Link to={`${data.id}`} className={`job job--${theme}`}>
+    <Link to={`${data.id}`} className="job">
       <div
         className="job__company-logo-container"
         style={{ backgroundColor: data.logoBackground }}

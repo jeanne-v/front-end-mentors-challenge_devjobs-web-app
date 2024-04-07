@@ -20,7 +20,7 @@ export default function Layout() {
   }, [theme]);
 
   return (
-    <div className={`container container--${theme}`}>
+    <div className={`container ${theme}-theme`}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <Header />
         <Outlet />

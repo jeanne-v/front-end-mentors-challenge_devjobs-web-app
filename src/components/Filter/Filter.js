@@ -73,12 +73,12 @@ export default function Filter() {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={`filter-bar filter-bar--${theme}`}
+      className="filter filter-bar"
       id="filter-form"
     >
-      <div className="filter-bar__input-container">
+      <div className="filter__input-container">
         <input
-          className="filter-bar__search-input filter-bar__search-input--title"
+          className="filter__search-input filter__search-input--title"
           type="search"
           placeholder="Filter by title..."
           name="position"
@@ -90,19 +90,19 @@ export default function Filter() {
       {width < 700 ? (
         <button
           type="button"
-          className="filter-bar__modal-open-btn"
+          className="filter__modal-open-btn"
           onClick={() => setIsModalOpen(true)}
         >
           <img
-            alt="filter results"
+            alt="open filter modal"
             src={theme === "light" ? filterIconLight : filterIconDark}
           />
         </button>
       ) : (
         <>
-          <div className="filter-bar__input-container">
+          <div className="filter__input-container">
             <input
-              className="filter-bar__search-input filter-bar__search-input--location"
+              className="filter__search-input filter__search-input--location"
               type="search"
               name="location"
               placeholder="Filter by location..."
@@ -112,15 +112,15 @@ export default function Filter() {
           </div>
 
           <div>
-            <div className="filter-bar__checkbox-container">
+            <div className="filter__checkbox-container">
               <input
                 id="full-time"
                 type="checkbox"
-                className="filter-bar__checkbox"
+                className="filter__checkbox"
                 onChange={commitFilterChange}
                 name="fullTimeOnly"
               />
-              <label htmlFor="full-time" className="filter-bar__checkbox-label">
+              <label htmlFor="full-time" className="filter__checkbox-label">
                 Full Time Only
               </label>
             </div>
@@ -133,7 +133,7 @@ export default function Filter() {
         createPortal(
           <Modal closeModal={() => setIsModalOpen(false)}>
             <input
-              className="filter-bar__search-input filter-bar__search-input--location"
+              className="filter__search-input filter__search-input--location"
               type="search"
               name="location"
               placeholder="Filter by location"
@@ -143,18 +143,15 @@ export default function Filter() {
             />
 
             <div className="modal__bottom">
-              <div className="filter-bar__checkbox-container">
+              <div className="filter__checkbox-container">
                 <input
                   id="full-time"
                   type="checkbox"
-                  className="filter-bar__checkbox"
+                  className="filter__checkbox"
                   onChange={commitFilterChange}
                   name="fullTimeOnly"
                 />
-                <label
-                  htmlFor="full-time"
-                  className="filter-bar__checkbox-label"
-                >
+                <label htmlFor="full-time" className="filter__checkbox-label">
                   Full Time Only
                 </label>
               </div>
@@ -162,7 +159,7 @@ export default function Filter() {
               <button
                 type="button"
                 form="filter-form"
-                className="filter-bar__search-btn"
+                className="filter__search-btn"
                 onClick={() => setIsModalOpen(false)}
               >
                 Search

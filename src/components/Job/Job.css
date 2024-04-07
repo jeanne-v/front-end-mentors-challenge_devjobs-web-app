@@ -2,16 +2,12 @@
   border-radius: var(--main-border-radius);
   text-decoration: none;
   padding: 32px;
+  background-color: var(--sec-bg-color);
+  color: var(--sec-text-color);
 }
 
-.job--light {
-  background-color: var(--light-sec-bg-color);
-  color: var(--light-sec-text-color);
-}
-
-.job--dark {
-  background-color: var(--dark-sec-bg-color);
-  color: var(--dark-third-text-color);
+.dark-theme .job {
+  --sec-text-color: #6e8098;
 }
 
 .job__company-logo-container {
@@ -29,14 +25,11 @@
   font-size: 20px;
   margin: 12px 0;
   font-weight: 700;
+  color: var(--main-text-color);
 }
 
-.job--light .job__position {
-  color: var(--light-main-text-color);
-}
-
-.job--dark .job__position {
-  color: var(--dark-main-text-color);
+.job__position:hover {
+  color: var(--sec-text-color);
 }
 
 .job__other-infos,
