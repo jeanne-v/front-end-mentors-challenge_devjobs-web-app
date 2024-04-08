@@ -47,11 +47,15 @@ export default function HomePage() {
     <main className="jobs-page__main">
       <Filter />
 
-      <div className="jobs-container">
-        {relevantJobs.slice(0, maxNumberOfDisplayedJobs).map((job) => {
-          return <Job key={job.id} data={job} />;
-        })}
-      </div>
+      {relevantJobs.length > 0 ? (
+        <div className="jobs-container">
+          {relevantJobs.slice(0, maxNumberOfDisplayedJobs).map((job) => {
+            return <Job key={job.id} data={job} />;
+          })}
+        </div>
+      ) : (
+        <p className="jobs-page__no-results">No results found</p>
+      )}
 
       {maxNumberOfDisplayedJobs < relevantJobs.length ? (
         <button onClick={loadMoreJobs} className="jobs-page__btn">

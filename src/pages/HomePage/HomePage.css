@@ -27,6 +27,13 @@
   background-color: var(--sec-accent-color);
 }
 
+.jobs-page__no-results {
+  text-align: center;
+  margin: 48px 0 0;
+  font-size: 28px;
+  color: var(--sec-text-color);
+}
+
 @media (min-width: 700px) {
   .jobs-page__main {
     margin: 0 40px;
