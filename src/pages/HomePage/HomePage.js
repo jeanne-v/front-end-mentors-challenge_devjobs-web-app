@@ -58,7 +58,11 @@ export default function HomePage() {
       )}
 
       {maxNumberOfDisplayedJobs < relevantJobs.length ? (
-        <button onClick={loadMoreJobs} className="jobs-page__btn">
+        <button
+          onClick={loadMoreJobs}
+          className="jobs-page__btn"
+          aria-label="load more jobs"
+        >
           Load more
         </button>
       ) : null}
